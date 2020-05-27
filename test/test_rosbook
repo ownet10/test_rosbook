@@ -1,4 +1,0 @@
-<launch>
-	<node pkg="test_rosbook" name="buzzer" type="buzzer.py" required="true" />
-	<test test-name="test_buzzer" pkg="test_rosbook" type="travis_test_buzzer.py" />
-</launch>
