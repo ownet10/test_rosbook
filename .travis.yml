@@ -1,5 +1,6 @@
 sudo: requird
 dist: xenial
+language: python
 
 script:
         - bash -xve ./test/travis_ros_install.bash
