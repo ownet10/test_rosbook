@@ -1,0 +1,10 @@
+sudo: requird
+dist: xenial
+language: python
+
+script:
+        - bash -xve ./test/travis_ros_install.bash
+        - source ~/catkin_ws/devel/setup.bash
+        - bash -xve ./test/travis_package_make.bash
+        - source ~/catkin_ws/devel/setup.bash
+        - rostest test_rosbook test.launch  
