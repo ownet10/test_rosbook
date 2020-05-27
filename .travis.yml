@@ -1,6 +1,5 @@
 sudo: requird
 dist: trusty
-language: python
 
 script:
         - bash -xve ./test/travis_ros_install.bash
