@@ -33,12 +33,12 @@ if __name__ == '__main__':
                 d.sum_all = sum(data)
                 d.sum_forward = data[4]
                 pub.publish(d)
-         except IOError:
-             rospy.logerr("cannot write to " + devfile)
+        except IOError:
+            rospy.logerr("cannot write to " + devfile)
 
-         f = get_freq()
-         if f != freq:
-             freq = f
-             rate = rospy.Rate(freq)
+        f = get_freq()
+        if f != freq:
+            freq = f
+            rate = rospy.Rate(freq)
          
-         rata.sleep()
+        rata.sleep()
