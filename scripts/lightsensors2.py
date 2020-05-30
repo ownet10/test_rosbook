@@ -19,7 +19,7 @@ if __name__ == '__main__':
     pub = rospy.Publisher('lightsensors', LightSensorValues, queue_size=1)
 
     freq = get_freq()
-    rata = rospy.Rate(freq)
+    rate = rospy.Rate(freq)
     while not rospy.is_shutdown():
         try:
             with open(devfile,'r') as f:
@@ -41,4 +41,4 @@ if __name__ == '__main__':
             freq = f
             rate = rospy.Rate(freq)
          
-        rata.sleep()
+        rate.sleep()
