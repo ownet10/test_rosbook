@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import sys, rospy
-from test_ros.msg import LightSensorValues
+from test_rosbook.msg import LightSensorValues
 
 def get_freq():
     f = rospy.get_param('lightsensors_freq',10)
