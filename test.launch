@@ -1,4 +1,6 @@
 <launch>
 	<node pkg="test_rosbook" name="buzzer" type="buzzer.py" required="true" />
+        <node pkg="test_rosbook" name="lightsensors" type="lightsensors.py" required="true" />
 	<test test-name="test_buzzer" pkg="test_rosbook" type="travis_test_buzzer.py" />
+	<test test-name="test_lightsensors" pkg="test_rosbook" type="travis_test_lightsensors.py" />
 </launch>
