@@ -10,10 +10,10 @@ def write_freq(hz=0):
     except IOError:
         rospy.logerr("can't write to " + bfile)
 
-#def recv_buzzer(self):
-#    write_freq(self.data)
+def recv_buzzer(self):
+    write_freq(self.data)
 
 if __name__ == '__main__':
     rospy.init_node('buzzer')
-    rospy.Subscriber("buzzer", UInt16, write_freq())
+    rospy.Subscriber("buzzer", UInt16, recv_buzzer())
     rospy.spin()
