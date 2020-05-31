@@ -2,9 +2,9 @@
 import rospy
 from std_msgs.msg import UInt16
 
-def recv_buzzer(data):
-    rospy.loginfo(type(data))
-    rospy.loginfo(data.data)
+def recv_buzzer(self):
+    rospy.loginfo(type(self))
+    rospy.loginfo(self.data)
 
 if __name__ == '__main__':
     rospy.init_node('buzzer')
