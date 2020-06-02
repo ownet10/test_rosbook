@@ -2,8 +2,8 @@
 import unittest, rostest
 import rosnode, rospy
 import time
-from test_rosbook.msgs import MotorFreqs
-from geometry_msgs import Twist
+from test_rosbook.msg import MotorFreqs
+from geometry_msgs.msg import Twist
 
 class MotorTest(unittest.TestCase):
     def file_check(self, dev, value, message):
@@ -45,4 +45,4 @@ class MotorTest(unittest.TestCase):
 if __name__ == '__main__':
     time.sleep(3)
     rospy.init_node('travis_test_motors')
-    rostest.rosrun('test_rosbook','travis_test_motors',MotorTest)
+    rostest.rosrun('test_rosbook','travis_test_motors', MotorTest)
