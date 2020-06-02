@@ -8,17 +8,17 @@ from geometry_msgs.msg import Twist
 class MotorTest(unittest.TestCase):
     def file_check(self, dev, value, message):
         with open("/dev/" + dev,"r") as f:
-            self.assrtEqual(f.readline(),str(value)+"\n",message)
+            self.assertEqual(f.readline(),str(value)+"\n",message)
 
     def test_node_exist(self):
         nodes = rosnode.get_node_names()
-        self.assrtIn('/motors', nodes, "node does not exist")
+        self.assertIn('/motors', nodes, "node does not exist")
 
     def test_put_freq(self):
         pub = rospy.Publisher('/motor_raw', MotorFreqs)
         m = MotorFreqs()
         m.left_hz = 123
-        m.righr_hz = 456
+        m.right_hz = 456
         for i in range(10):
             pub.publish(m)
             time.sleep(0.1)
