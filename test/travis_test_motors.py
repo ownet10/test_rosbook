@@ -66,7 +66,7 @@ class MotorTest(unittest.TestCase):
         self.assertEqual(ret.message, "ON", "motor on wrong message")
         with open("/dev/rtmotoren0","r") as f:
             data = d.readline()
-            self.assertEqual(data, "1\n", "wrong value in rtmotor0 at motor on")
+            self.assertEqual(data, "0\n", "wrong value in rtmotor0 at motor on")
     
     def test_put_value_timed(self):
         tm = rospy.ServiceProxy('/timed_motion', TimedMotion)
@@ -76,6 +76,5 @@ class MotorTest(unittest.TestCase):
             self.assertEqual(data, "-321 654 1500\n", "value does not written tortmotor0")
 
 if __name__ == '__main__':
-    # time.sleep(3)
     rospy.init_node('travis_test_motors')
     rostest.rosrun('test_rosbook','travis_test_motors', MotorTest)
