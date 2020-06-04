@@ -10,6 +10,7 @@ project(test_rosbook)
 find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
+  std_srvs
   message_generation
 )
 
@@ -105,7 +106,7 @@ add_message_files(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES test_rosbook
-  CATKIN_DEPENDS rospy std_msgs message_runtime
+  CATKIN_DEPENDS rospy std_msgs std_srvs message_runtime
 #  DEPENDS system_lib
 )
 
