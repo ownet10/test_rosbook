@@ -8,11 +8,11 @@ class Motor():
         if not self.set_power(True): sys.exist(l)
 
         rospy.on_shutdown(self.set_power)
-        self.sub_raw = rospy.Subscriber('motor_raw', MotorFreqs, callback_raw_freq)
-        self.sub_cmd_vel = rospy.Subscriber('cmd_vel', Twist, callback_cmd_vel)
+        self.sub_raw = rospy.Subscriber('motor_raw', MotorFreqs, self.callback_raw_freq)
+        self.sub_cmd_vel = rospy.Subscriber('cmd_vel', Twist, self.callback_cmd_vel)
         self.last_time = rospy.Time.now()
         self.using_cmd_vel = False
-    
+
     def set_power(self,onoff = False):
         en = '/dev/rtmotoren0'
         try:
@@ -22,9 +22,9 @@ class Motor():
             return True
         except:
             rospy.logerr("cannot write to" + en)
-        
+
         return False
-    
+
     def set_raw_freq(self, left_hz, right_hz):
         if not self.is_on:
             rospy.logerr("not enpowered")
@@ -56,6 +56,5 @@ if __name__ == '__main__':
     while not rospy.is_shutdown():
         if m.using_cmd_vel and rospy.Time.now().to_sec() - m.last_time.to_sec() >= 1.0:
             m.set_raw_freq(0,0)
-            m.using_cmd_vel = False 
-        rate.sleep()    
-
+            m.using_cmd_vel = False
+        rate.sleep()
