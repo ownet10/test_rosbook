@@ -55,6 +55,6 @@ if __name__ == '__main__':
     rate = rospy.Rate(10)
     while not rospy.is_shutdown():
         if m.using_cmd_vel and rospy.Time.now().to_sec() - m.last_time.to_sec() >= 1.0:
-            m.set_raw_freq(0,0)
+            m.set.raw_freq(0,0)
             m.using_cmd_vel = False
         rate.sleep()
