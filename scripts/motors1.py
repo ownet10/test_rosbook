@@ -20,7 +20,7 @@ class Motor():
         forward_hz = 80000.0*message.linear.x/(9*math.pi)
         rot_hz = 400.0*message.angular.z/math.pi
         self.set.raw_freq(forward_hz-rot_hz, forward_hz+rot_hz)
-        self.using_cmd_vel = True
+      #  self.using_cmd_vel = True
         self.last_time = rospy.Time.now()
 
 class Set:
@@ -54,7 +54,7 @@ if __name__ == '__main__':
 
     rate = rospy.Rate(10)
     while not rospy.is_shutdown():
-        if m.using_cmd_vel and rospy.Time.now().to_sec() - m.last_time.to_sec() >= 1.0:
+        if rospy.Time.now().to_sec() - m.last_time.to_sec() >= 1.0:
             m.set.raw_freq(0,0)
             m.using_cmd_vel = False
         rate.sleep()
