@@ -25,7 +25,7 @@ class Motor():
 
 class Set:
     def power(self,onoff = False):
-        dev = 'dev/rtmotoren0'
+        dev = '/dev/rtmotoren0'
         try:
             with open(dev,'w') as f:
                 f.write("1\n" if onoff else "0\n")
