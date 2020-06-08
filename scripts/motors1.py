@@ -5,7 +5,6 @@ from geometry_msgs.msg import Twist
 
 class Motor():
     def __init__(self):
-        self.set = Set()
         if not self.power(True): sys.exist(1)
 
         rospy.on_shutdown(self.power)
