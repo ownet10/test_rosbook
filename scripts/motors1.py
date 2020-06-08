@@ -37,7 +37,7 @@ class Set:
         return False    
     
     def raw_freq(self,left_hz,right_hz):
-        if not is_on:
+        if not self.is_on:
             rospy.logerr("not empowered")
             return
         try:
