@@ -9,7 +9,7 @@ from std_srvs.srv import Trigger, TriggerResponse #add
 
 class Motor():
     def __init__(self):
-        if not self.set_power(True): sys.exist(l) #モータの電源を切る
+        if not self.set_power(True): sys.exist(1) #モータの電源を切る
 
         rospy.on_shutdown(self.set_power)
         self.sub_raw = rospy.Subscriber('motor_raw', MotorFreqs, self.callback_raw_freq)
